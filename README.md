@@ -1,6 +1,6 @@
 # Group Project
 
-Team - 
+Team:
 
 Designers: Matthew Lummis (Level 2) Benjamin Attebery (Level 1)
 
