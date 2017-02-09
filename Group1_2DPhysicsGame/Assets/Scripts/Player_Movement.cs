@@ -2,25 +2,63 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Movement : MonoBehaviour {
+public class Player_Movement : MonoBehaviour
+{
 
-	public float moveSpeed;
+    public float moveSpeed;
+    public KeyCode left, right, up, down;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetAxisRaw ("Horizontal") > 0) 
-		{
-			transform.Translate (Vector2.right * Time.deltaTime * moveSpeed);	
-		}
+    private Vector3 defaultScale;
+    private Vector2 velocity;
 
-		if (Input.GetAxisRaw ("Horizontal") < 0) 
-		{
-			transform.Translate (Vector2.left * Time.deltaTime * moveSpeed);	
-		}
-	}
+    private void Start()
+    {
+        defaultScale = GetComponent<Transform>().localScale;
+    }
+
+    private void UserInput()
+    {
+        if (Input.GetKey(left))
+        {
+            velocity.x = -moveSpeed;
+            GetComponent<Transform>().localScale = new Vector3(-defaultScale.x, defaultScale.y, defaultScale.z);
+        }
+        else if (Input.GetKey(right))
+        {
+            velocity.x = moveSpeed;
+            GetComponent<Transform>().localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
+
+        }
+        else if (Input.GetKey(up))
+        {
+            velocity.y = moveSpeed;
+            GetComponent<Transform>().localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
+
+        }
+        else if (Input.GetKey(down))
+        {
+            velocity.y = -moveSpeed;
+            GetComponent<Transform>().localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
+
+        }
+        else
+        {
+            velocity.x = 0;
+            velocity.y = 0;
+        }
+    }
+
+
+        void Update()
+        {
+        UserInput();
+        velocity *= Time.deltaTime;
+
+        GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x, GetComponent<Rigidbody2D>().velocity.y + velocity.y);
+
+        velocity = Vector2.zero;
+
+    }
+
+
 }
