@@ -10,6 +10,7 @@ public class Player_Movement : MonoBehaviour
 
     private Vector3 defaultScale;
     private Vector2 velocity;
+ 
 
     private void Start()
     {
@@ -52,9 +53,9 @@ public class Player_Movement : MonoBehaviour
         void Update()
         {
         UserInput();
-        velocity *= Time.deltaTime;
+        //velocity *= Time.deltaTime;
 
-        GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x, GetComponent<Rigidbody2D>().velocity.y + velocity.y);
+        GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x,  velocity.y);
 
         velocity = Vector2.zero;
 
