@@ -12,30 +12,69 @@ public class Player_Movement : MonoBehaviour
 
     private void UserInput()
     {
-        if (Input.GetKey(left))
+        //                      LEFT
+        //|----------------------------------------------------|
+        if(Input.GetKey(left))
         {
             velocity.x = -moveSpeed;
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if (Input.GetKey(right))
+        else if(Input.GetKey(left) && Input.GetKey(up))
+        {
+            velocity.x = -moveSpeed;
+            velocity.y = moveSpeed;
+        }
+        else if(Input.GetKey(left) && Input.GetKey(down))
+        {
+            velocity.x = -moveSpeed;
+            velocity.y = -moveSpeed;
+
+        }
+        //|----------------------------------------------------|
+
+        //                      RIGHT
+        //|----------------------------------------------------|
+        else if(Input.GetKey(right))
         {
             velocity.x = moveSpeed;
             GetComponent<SpriteRenderer>().flipX = false;
-
         }
-        else if (Input.GetKey(up))
+        else if(Input.GetKey(right) && Input.GetKey(up))
+        {
+            velocity.x = moveSpeed;
+            velocity.y = moveSpeed;
+        }
+        else if(Input.GetKey(right) && Input.GetKey(down))
+        {
+            velocity.x = moveSpeed;
+            velocity.y = -moveSpeed;
+        }
+        //|----------------------------------------------------|
+
+        //                      UP
+        //|----------------------------------------------------|
+        else if(Input.GetKey(up))
         {
             velocity.y = moveSpeed;
         }
-        else if (Input.GetKey(down))
+        //|----------------------------------------------------|
+
+
+        //                      Down
+        //|----------------------------------------------------|
+        else if(Input.GetKey(down))
         {
             velocity.y = -moveSpeed;
         }
+        //|----------------------------------------------------|
+
+
         else
         {
             velocity.x = 0;
             velocity.y = 0;
         }
+
     }
 
 

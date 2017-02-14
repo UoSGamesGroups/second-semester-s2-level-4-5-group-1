@@ -15,8 +15,8 @@ public class scoreHandler : MonoBehaviour
     private const string strBluePrefix = "BLUE: ";
     private const string strRedPrefix = "RED: ";
 
-    private int scoreRed = 0;
-    private int scoreBlue = 0;
+    static public int scoreRed = 0;
+    static public int scoreBlue = 0;
 
 	private void updateUI()
     {

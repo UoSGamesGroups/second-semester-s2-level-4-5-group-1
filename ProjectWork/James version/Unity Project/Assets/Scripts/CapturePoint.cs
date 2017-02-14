@@ -72,6 +72,7 @@ public class CapturePoint : MonoBehaviour
 
             if(count >= TICKS_LIFESPAN)
             {
+                gameManager.totalPoints += 1;
                 Destroy(gameObject);
             }
         }
