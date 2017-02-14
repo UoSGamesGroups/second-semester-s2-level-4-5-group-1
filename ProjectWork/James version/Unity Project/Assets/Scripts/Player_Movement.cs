@@ -8,39 +8,28 @@ public class Player_Movement : MonoBehaviour
     public float moveSpeed;
     public KeyCode left, right, up, down;
 
-    private Vector3 defaultScale;
     private Vector2 velocity;
- 
-
-    private void Start()
-    {
-        defaultScale = GetComponent<Transform>().localScale;
-    }
 
     private void UserInput()
     {
         if (Input.GetKey(left))
         {
             velocity.x = -moveSpeed;
-            GetComponent<Transform>().localScale = new Vector3(-defaultScale.x, defaultScale.y, defaultScale.z);
+            GetComponent<SpriteRenderer>().flipX = true;
         }
         else if (Input.GetKey(right))
         {
             velocity.x = moveSpeed;
-            GetComponent<Transform>().localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
+            GetComponent<SpriteRenderer>().flipX = false;
 
         }
         else if (Input.GetKey(up))
         {
             velocity.y = moveSpeed;
-            GetComponent<Transform>().localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
-
         }
         else if (Input.GetKey(down))
         {
             velocity.y = -moveSpeed;
-            GetComponent<Transform>().localScale = new Vector3(defaultScale.x, defaultScale.y, defaultScale.z);
-
         }
         else
         {

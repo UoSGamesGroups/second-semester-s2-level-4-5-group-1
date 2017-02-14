@@ -15,13 +15,18 @@ public class CapturePoint : MonoBehaviour
 
     private readonly Color32 clrBlue = new Color32(0, 0, 255, 255);
     private readonly Color32 clrRed = new Color32(255, 0, 0, 255);
-    private readonly Color32 clrDefault = new Color32(255, 255, 255, 255);
+    private readonly Color32 clrDefault = new Color32(0, 255, 0, 255);
 
     private enum Team { NONE, BLUE, RED };
     Team capturerTeam = Team.NONE;
 
     private float lastScore = 0;
     private int count = 0;
+
+    void Start()
+    {
+        GetComponent<SpriteRenderer>().color = clrDefault;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
