@@ -20,15 +20,16 @@ public class Player_Movement : MonoBehaviour
             {
                 velocity.x = -moveSpeed;
                 velocity.y = moveSpeed;
+                GetComponent<SpriteRenderer>().flipY = true;
             }
             if (Input.GetKey(left) && Input.GetKey(down))
             {
                 velocity.x = -moveSpeed;
                 velocity.y = -moveSpeed;
-
+                GetComponent<SpriteRenderer>().flipY = true;
             }
             velocity.x = -moveSpeed;
-            GetComponent<SpriteRenderer>().flipX = true;
+            GetComponent<SpriteRenderer>().flipY = true;
         }
 
         //|----------------------------------------------------|
@@ -41,14 +42,16 @@ public class Player_Movement : MonoBehaviour
             {
                 velocity.x = moveSpeed;
                 velocity.y = moveSpeed;
+                GetComponent<SpriteRenderer>().flipY = false;
             }
             if (Input.GetKey(right) && Input.GetKey(down))
             {
                 velocity.x = moveSpeed;
                 velocity.y = -moveSpeed;
+                GetComponent<SpriteRenderer>().flipY = false;
             }
             velocity.x = moveSpeed;
-            GetComponent<SpriteRenderer>().flipX = false;
+            GetComponent<SpriteRenderer>().flipY = false;
         }
 
         //|----------------------------------------------------|
