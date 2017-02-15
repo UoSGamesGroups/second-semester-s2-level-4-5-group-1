@@ -16,39 +16,41 @@ public class Player_Movement : MonoBehaviour
         //|----------------------------------------------------|
         if(Input.GetKey(left))
         {
+            if (Input.GetKey(left) && Input.GetKey(up))
+            {
+                velocity.x = -moveSpeed;
+                velocity.y = moveSpeed;
+            }
+            if (Input.GetKey(left) && Input.GetKey(down))
+            {
+                velocity.x = -moveSpeed;
+                velocity.y = -moveSpeed;
+
+            }
             velocity.x = -moveSpeed;
             GetComponent<SpriteRenderer>().flipX = true;
         }
-        else if(Input.GetKey(left) && Input.GetKey(up))
-        {
-            velocity.x = -moveSpeed;
-            velocity.y = moveSpeed;
-        }
-        else if(Input.GetKey(left) && Input.GetKey(down))
-        {
-            velocity.x = -moveSpeed;
-            velocity.y = -moveSpeed;
 
-        }
         //|----------------------------------------------------|
 
         //                      RIGHT
         //|----------------------------------------------------|
         else if(Input.GetKey(right))
         {
+            if (Input.GetKey(right) && Input.GetKey(up))
+            {
+                velocity.x = moveSpeed;
+                velocity.y = moveSpeed;
+            }
+            if (Input.GetKey(right) && Input.GetKey(down))
+            {
+                velocity.x = moveSpeed;
+                velocity.y = -moveSpeed;
+            }
             velocity.x = moveSpeed;
             GetComponent<SpriteRenderer>().flipX = false;
         }
-        else if(Input.GetKey(right) && Input.GetKey(up))
-        {
-            velocity.x = moveSpeed;
-            velocity.y = moveSpeed;
-        }
-        else if(Input.GetKey(right) && Input.GetKey(down))
-        {
-            velocity.x = moveSpeed;
-            velocity.y = -moveSpeed;
-        }
+
         //|----------------------------------------------------|
 
         //                      UP
