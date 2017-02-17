@@ -4,43 +4,29 @@ using UnityEngine;
 
 public class playerContorlsXbox : MonoBehaviour
 {
-    public bool isButton = true;
-    public bool leftJoystick = true;
-    public string buttonName;
 
-    private Vector3 startPos;
-    private Transform thisTransform;
+    string a = "Joystick1ButtonA";
+    string b = "Joystick1ButtonB";
+    string x = "Joystick1ButtonX";
+    string y = "Joystick1ButtonY";
 
-	// Use this for initialization
-	void Start ()
-    {
-        thisTransform = transform;
-        startPos = thisTransform.position;
-	}
-	
+    string leftJoystickX = "Joystick1LeftVertical";
+    string leftJoystickY = "Joystick1LeftHorizontal";
+
+    const float SPEED = 10.0f;
+
 	// Update is called once per frame
 	void Update ()
     {
-        if (isButton)
-        {
-            Input.GetButton(buttonName);
-        }
-        else
-        {
-            if (leftJoystick)
-            {
-                Vector3 inputDirection = Vector3.zero;
-                inputDirection.x = Input.GetAxis("LeftJoystickHorizontal");
-                inputDirection.y = Input.GetAxis("LeftJoystickVertical");
-                thisTransform.position = startPos + inputDirection;
-            }
-            else
-            {
-                Vector3 inputDirection = Vector3.zero;
-                inputDirection.x = Input.GetAxis("RightJoystickHorizontal");
-                inputDirection.y = Input.GetAxis("RightJoystickVertical");
-                thisTransform.position = startPos + inputDirection;
-            }
-        }
-	}
+        float horizontalSpeed = Input.GetAxis("Joystick1LeftHorizontal");
+        float verticalSpeed = Input.GetAxis("Joystick1LeftVertical");
+
+        Debug.Log("X: " + horizontalSpeed + ", Y: " + verticalSpeed);
+       
+
+        Vector2 velocity = new Vector2(horizontalSpeed, verticalSpeed);
+
+        GetComponent<Rigidbody2D>().velocity = velocity;
+
+    }
 }
