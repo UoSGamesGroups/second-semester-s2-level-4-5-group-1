@@ -34,5 +34,10 @@ public class addForce : MonoBehaviour
     {
         Destroy(this.gameObject);
     }
+
+    void Update()
+    {
+        //TODO: Add GetComponent<SpriteRenderder>().flipX = true;
+    }
 }
 
