@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerContorlsXbox : MonoBehaviour
+public class playerControlsXbox : MonoBehaviour
 {
 
     string a = "Joystick1ButtonA";
@@ -10,21 +10,21 @@ public class playerContorlsXbox : MonoBehaviour
     string x = "Joystick1ButtonX";
     string y = "Joystick1ButtonY";
 
-    string leftJoystickX = "Joystick1LeftVertical";
-    string leftJoystickY = "Joystick1LeftHorizontal";
+    public string leftJoystickX = "Joystick1LeftVertical";
+    public string leftJoystickY = "Joystick1LeftHorizontal";
 
-    const float SPEED = 10.0f;
+    public float SPEED;
 
 	// Update is called once per frame
 	void Update ()
     {
-        float horizontalSpeed = Input.GetAxis("Joystick1LeftHorizontal");
-        float verticalSpeed = Input.GetAxis("Joystick1LeftVertical");
+        float horizontalSpeed = Input.GetAxis(leftJoystickX);
+        float verticalSpeed = Input.GetAxis(leftJoystickY);
 
         Debug.Log("X: " + horizontalSpeed + ", Y: " + verticalSpeed);
        
 
-        Vector2 velocity = new Vector2(horizontalSpeed, verticalSpeed);
+        Vector2 velocity = new Vector2(horizontalSpeed * SPEED, verticalSpeed  * SPEED);
 
         GetComponent<Rigidbody2D>().velocity = velocity;
 
