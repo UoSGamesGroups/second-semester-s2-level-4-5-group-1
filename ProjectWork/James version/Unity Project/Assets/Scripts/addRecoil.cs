@@ -5,12 +5,16 @@ using UnityEngine;
 public class addRecoil : MonoBehaviour {
 
 public float recoilForce;				// Thrust applied to projectile
-public Rigidbody2D PCrb;				// Projectile's rigidBody
+public Rigidbody2D rb;				// Projectile's rigidBody
 public GameObject PC;
 
-	void OnButtonDown()
+
+	void Update ()
+	{
+	if (Input.GetButtonDown("Fire1"))
 		{
-			PCrb = GetComponent<Rigidbody2D> ();
-			PCrb.AddForce (transform.up * recoilForce);       // Adds a single blast of force to the projectile
+			rb = GetComponent<Rigidbody2D> ();
+			rb.AddForce (transform.up * recoilForce);       // Adds a single blast of force to the projectile
 		}
 	}
+}
