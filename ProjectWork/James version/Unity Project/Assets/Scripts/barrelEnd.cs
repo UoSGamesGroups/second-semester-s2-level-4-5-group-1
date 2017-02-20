@@ -8,19 +8,19 @@ public class barrelEnd : MonoBehaviour {
 	public float recoilForce;                 // Amount of recoil
 	public Rigidbody2D canonRigidBody;        // RigidBody that force is applied to
 
+    public string Fire1 = "Joystick1ButtonA";
 
-	// Use this for initialization
-	void Start () {}
+    // Use this for initialization
+    void Start () {}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButtonDown(Fire1))
 		{
 			Instantiate(projectile, transform.position, transform.rotation);		// Creates projectiles
-		
 		}
-	}
+    }
 
 /*	void recoil() 
 
