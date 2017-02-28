@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class CapturePoint : MonoBehaviour
 {
 
     [SerializeField]
     private scoreHandler scoreHandler;
+
+    public string teamBase;
+    public int sceneIDToLoad;
 
     private const float TICKS_LIFESPAN = 5.0f;
     private const int POINTS_PER_TICK = 10;
@@ -30,12 +33,12 @@ public class CapturePoint : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Blue_Team"))
+        if(collision.gameObject.CompareTag(teamBase))
         {
             capturerTeam = Team.BLUE;
             GetComponent<SpriteRenderer>().color = clrBlue;
         }
-        else if(collision.gameObject.CompareTag("Red_Team"))
+        else if(collision.gameObject.CompareTag(teamBase))
         {
             capturerTeam = Team.RED;
             GetComponent<SpriteRenderer>().color = clrRed;
@@ -73,7 +76,8 @@ public class CapturePoint : MonoBehaviour
             if(count >= TICKS_LIFESPAN)
             {
                 gameManager.totalPoints += 1;
-                Destroy(gameObject);
+                SceneManager.LoadScene(sceneIDToLoad);
+                //Destroy(gameObject);
             }
         }
     }
