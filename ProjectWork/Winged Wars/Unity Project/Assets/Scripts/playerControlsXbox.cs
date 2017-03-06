@@ -4,12 +4,6 @@ using UnityEngine;
 
 public class playerControlsXbox : MonoBehaviour
 {
-
-    string a = "Joystick1ButtonA";
-    string b = "Joystick1ButtonB";
-    string x = "Joystick1ButtonX";
-    string y = "Joystick1ButtonY";
-
     public string leftJoystickX = "Joystick1LeftVertical";
     public string leftJoystickY = "Joystick1LeftHorizontal";
 
