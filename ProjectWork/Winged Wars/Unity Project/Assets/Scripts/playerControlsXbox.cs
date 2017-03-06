@@ -21,7 +21,7 @@ public class playerControlsXbox : MonoBehaviour
         float horizontalSpeed = Input.GetAxis(leftJoystickX);
         float verticalSpeed = Input.GetAxis(leftJoystickY);
 
-        Debug.Log("X: " + horizontalSpeed + ", Y: " + verticalSpeed);
+        //Debug.Log("X: " + horizontalSpeed + ", Y: " + verticalSpeed);
        
 
         Vector2 velocity = new Vector2(horizontalSpeed * SPEED, verticalSpeed  * SPEED);
