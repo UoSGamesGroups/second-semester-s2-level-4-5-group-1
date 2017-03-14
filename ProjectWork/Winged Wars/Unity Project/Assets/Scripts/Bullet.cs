@@ -50,7 +50,10 @@ public class Bullet : MonoBehaviour
                 Destroy(gameObject);
             }
         }
-
+        if (collision.gameObject.CompareTag("Red_Team") || collision.gameObject.CompareTag("Blue_Team"))
+        {
+            Destroy(gameObject);
+        }
     }   
 
 }
