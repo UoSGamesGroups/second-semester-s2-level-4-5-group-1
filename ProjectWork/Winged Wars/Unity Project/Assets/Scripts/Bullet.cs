@@ -14,11 +14,24 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rigidbody_;
     private int times_bounced_;
 
+    public Sprite sprite1;
+    public Sprite sprite2;
+    public Sprite sprite3;
+    public Sprite sprite4;
+    public Sprite sprite5;
+
+    private SpriteRenderer spriteRenderer;
+
     private void Start()
     {
         if(GetComponent<Rigidbody2D>() != null)
         {
             rigidbody_ = GetComponent<Rigidbody2D>();
+        }
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer.sprite == null)
+        {
+            spriteRenderer.sprite = sprite1;
         }
     }
 
@@ -45,6 +58,27 @@ public class Bullet : MonoBehaviour
     {
         if (wall_layer_ == (wall_layer_ | (1 << collision.gameObject.layer)))
         {
+            switch (bounces_)
+            {
+                case 0:
+                    spriteRenderer.sprite = sprite1;
+                    break;
+                case 1:
+                    spriteRenderer.sprite = sprite2;
+                    break;
+                case 2:
+                    spriteRenderer.sprite = sprite3;
+                    break;
+                case 3:
+                    spriteRenderer.sprite = sprite4;
+                    break;
+                case 4:
+                    spriteRenderer.sprite = sprite5;
+                    break;
+                default:
+                    spriteRenderer.sprite = sprite1;
+                    break;
+            }
             if(++times_bounced_ == bounces_)
             {
                 Destroy(gameObject);
@@ -54,6 +88,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+     
     }   
 
 }

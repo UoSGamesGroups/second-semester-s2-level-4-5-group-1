@@ -12,9 +12,12 @@ public class mouseAimTest : MonoBehaviour
     private float verticalAim = 0.0f;
     private float horizontalAim = 0.0f;
 
-    private Vector3 currentAimPosition;
-    private Vector3 lastRememberedPosition;
+    public Vector3 currentAimPosition;
+    public Vector3 lastRememberedPosition;
     private Vector3 defaultPos = new Vector3(0, 0, 0);
+
+    public float horizontal;
+    public float vertical;
 
     void Start()
     {
@@ -23,38 +26,35 @@ public class mouseAimTest : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxis(rightJoystickX);// * Time.deltaTime;// * speed;
-        float vertical = Input.GetAxis(rightJoystickY); // * Time.deltaTime;// * speed;
+        horizontal = Input.GetAxis(rightJoystickX) * Time.deltaTime;// * speed;
+        vertical = Input.GetAxis(rightJoystickY) * Time.deltaTime;// * speed;
 
         //Debug.Log(Mathf.Atan2(vertical, horizontal) * 180 / Mathf.PI);
 
+        Debug.Log(currentAimPosition);
+
         //Remember where we were looking last frame
-        lastRememberedPosition = currentAimPosition;
-        //Update our current position using input from the controller
-        currentAimPosition = new Vector3(0, 0, Mathf.Atan2(vertical, horizontal) * 180 / Mathf.PI);
+        lastRememberedPosition.z = currentAimPosition.z;
+
+        if (vertical != 0.0f && horizontal != 0.0f)
+        {
+            //Update our current position using input from the controller
+            currentAimPosition = new Vector3(0, 0, Mathf.Atan2(vertical, horizontal)  * 180 / Mathf.PI - 90);
+        }
 
         //If our stick is up
         if(currentAimPosition.z == 0)
         {
             //Look at our last position
-            Debug.Log("Aim == 0");
+            //Debug.Log("Aim == 0");
             transform.eulerAngles = lastRememberedPosition;
         }
         //Otherwise
         else if (currentAimPosition.z != 0)
         {
             //Update our position from input
-            Debug.Log("Taking aim from con");
+            //Debug.Log("Taking aim from con");
             transform.eulerAngles = currentAimPosition;
         }
-
-
-
-        /*horizontalAim += horizontal;
-        verticalAim += vertical;
-        //Vector2 direction = Camera.main.ScreenToWorldPoint (Input.mousePosition) - transform.position;
-        float angle = Mathf.Atan2 (horizontalAim, verticalAim) * Mathf.Rad2Deg + 45;
-		Quaternion rotation = Quaternion.AngleAxis (angle, Vector3.forward);
-		transform.rotation = Quaternion.Slerp (transform.rotation, rotation, speed * Time.deltaTime);*/
     }
 }

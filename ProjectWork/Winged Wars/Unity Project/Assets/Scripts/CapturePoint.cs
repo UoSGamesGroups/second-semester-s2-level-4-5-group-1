@@ -16,9 +16,9 @@ public class CapturePoint : MonoBehaviour
     private const int POINTS_BONUS = 100;
     private const float SCORE_RATE = 1.0f;
 
-    private readonly Color32 clrBlue = new Color32(0, 0, 255, 255);
-    private readonly Color32 clrRed = new Color32(255, 0, 0, 255);
-    private readonly Color32 clrDefault = new Color32(0, 255, 0, 255);
+    private readonly Color32 clrBlue = new Color32(93, 149, 239, 255);
+    private readonly Color32 clrRed = new Color32(239, 184, 192, 255);
+    private readonly Color32 clrDefault = new Color32(255, 255, 255, 255);
 
     private enum Team { NONE, BLUE, RED };
     Team capturerTeam = Team.NONE;
@@ -79,34 +79,34 @@ public class CapturePoint : MonoBehaviour
             {
                 //gameManager.totalPoints += 1;
 
-                if(GameObject.Find("SceneTransitioner") && !transitioned)
-                {
-                    string currentScene = SceneManager.GetActiveScene().name;
-                    var sceneTransitioner = GameObject.Find("SceneTransitioner").GetComponent<SceneTransitioner>();
-                    if (capturerTeam == Team.RED)
-                    {
-                        if(currentScene == "FirstLevel")
-                        {
-                            sceneTransitioner.transitionToScene("BlueDefence1");
-                        }
-                        else if(currentScene == "BlueDefence1")
-                        {
-                            sceneTransitioner.transitionToScene("GameOverRed");
-                        }
-                    }
-                    else if (capturerTeam == Team.BLUE)
-                    {
-                        if (currentScene == "FirstLevel")
-                        {
-                            sceneTransitioner.transitionToScene("RedDefence1");
-                        }
-                        else if (currentScene == "RedDefence1")
-                        {
-                            sceneTransitioner.transitionToScene("GameOverBlue");
-                        }
-                    }
-                    transitioned = true;
-                }
+                //if(GameObject.Find("SceneTransitioner") && !transitioned)
+                //{
+                //    string currentScene = SceneManager.GetActiveScene().name;
+                //    var sceneTransitioner = GameObject.Find("SceneTransitioner").GetComponent<SceneTransitioner>();
+                //    if (capturerTeam == Team.RED)
+                //    {
+                //        if(currentScene == "FirstLevel")
+                //        {
+                //            sceneTransitioner.transitionToScene("BlueDefence1");
+                //        }
+                //        else if(currentScene == "BlueDefence1")
+                //        {
+                //            sceneTransitioner.transitionToScene("GameOverRed");
+                //        }
+                //    }
+                //    else if (capturerTeam == Team.BLUE)
+                //    {
+                //        if (currentScene == "FirstLevel")
+                //        {
+                //            sceneTransitioner.transitionToScene("RedDefence1");
+                //        }
+                //        else if (currentScene == "RedDefence1")
+                //        {
+                //            sceneTransitioner.transitionToScene("GameOverBlue");
+                //        }
+                //    }
+                //    transitioned = true;
+               // }
 
                 //Destroy(gameObject);
             }

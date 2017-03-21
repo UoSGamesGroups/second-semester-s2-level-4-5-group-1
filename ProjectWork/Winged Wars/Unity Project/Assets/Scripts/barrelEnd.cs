@@ -5,12 +5,14 @@ using UnityEngine;
 public class barrelEnd : MonoBehaviour {
 
 	public GameObject projectile;             // Projectile game object being spawn
-	public Rigidbody2D canonRigidBody;        // RigidBody that force is applied to
 
     public string fire;
     bool canFire = true;
 
     public float RateOfFire = 0.2f;
+
+    public float RecoilAmount;
+    public Transform PlayerTransform;
 
     void Update () 
 	{           
@@ -19,10 +21,10 @@ public class barrelEnd : MonoBehaviour {
 	            Instantiate(projectile, transform.position, transform.rotation); // Creates projectiles
 	            canFire = false;
 
+                
+
 	            StartCoroutine(FireControl());
 	        }
-	    
-
 	}
 
     IEnumerator FireControl()
