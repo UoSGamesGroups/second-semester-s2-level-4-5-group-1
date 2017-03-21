@@ -1,4 +1,4 @@
 sceneSetups:
-- path: D:/Uni Work/Emerging Tech Projects/ProjectIsaac-master/Unity Project/Assets/Scenes/Test.unity
+- path: Assets/Scenes/FirstLevel.unity
   isLoaded: 1
   isActive: 1

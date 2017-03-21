@@ -6,14 +6,12 @@ public class playerControlsXbox : MonoBehaviour
 {
     public string leftJoystickX = "Joystick1LeftVertical";
     public string leftJoystickY = "Joystick1LeftHorizontal";
-
-    public float SPEED;
+    public float speed;
     public float pushTime;
-
     public GameObject projectile;             // Projectile game object being spawn
-
     public string fire;
     bool canFire = true;
+    bool pushing = false;
 
     public float RateOfFire = 0.2f;
 
@@ -26,22 +24,19 @@ public class playerControlsXbox : MonoBehaviour
         float horizontalSpeed = Input.GetAxis(leftJoystickX);
         float verticalSpeed = Input.GetAxis(leftJoystickY);
 
-        //Debug.Log("X: " + horizontalSpeed + ", Y: " + verticalSpeed);
-       
-
-        Vector2 velocity = new Vector2(horizontalSpeed * SPEED, verticalSpeed  * SPEED);
-
-        GetComponent<Rigidbody2D>().velocity = velocity;
-
-        if(Input.GetAxis(fire) != 0 && canFire == true)
+        if (pushing == false)
+        {
+            Vector2 velocity = new Vector2(horizontalSpeed * speed, verticalSpeed * speed);
+            GetComponent<Rigidbody2D>().velocity = velocity;
+        }
+        if (Input.GetAxis(fire) != 0 && canFire == true)
         {
             Instantiate(projectile, ShotPosition.position, transform.rotation); // Creates projectiles
             canFire = false;
 
-            Vector2 PushBack = -transform.forward * RecoilAmount;
-
-            GetComponent<Rigidbody2D>().velocity = PushBack;
-
+            pushing = true;
+            StartCoroutine(canPush());
+            pushing = false;
             StartCoroutine(FireControl());
         }
     }
@@ -49,13 +44,13 @@ public class playerControlsXbox : MonoBehaviour
     IEnumerator FireControl()
     {
         yield return new WaitForSeconds(RateOfFire);
-
         canFire = true;
     }
 
     IEnumerator canPush()
     {
+        Vector2 PushBack = -transform.forward * RecoilAmount;
+        GetComponent<Rigidbody2D>().velocity = PushBack;
         yield return new WaitForSeconds(pushTime);
-
     }
 }
