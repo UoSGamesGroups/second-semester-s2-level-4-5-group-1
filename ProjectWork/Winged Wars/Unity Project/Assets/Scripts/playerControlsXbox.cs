@@ -24,18 +24,21 @@ public class playerControlsXbox : MonoBehaviour
         float horizontalSpeed = Input.GetAxis(leftJoystickX);
         float verticalSpeed = Input.GetAxis(leftJoystickY);
 
-        if (pushing == false)
-        {
+       // if (pushing == false)
+      //  {
             Vector2 velocity = new Vector2(horizontalSpeed * speed, verticalSpeed * speed);
             GetComponent<Rigidbody2D>().velocity = velocity;
-        }
+       // }
         if (Input.GetAxis(fire) != 0 && canFire == true)
         {
             Instantiate(projectile, ShotPosition.position, transform.rotation); // Creates projectiles
             canFire = false;
 
-            pushing = true;
-            StartCoroutine(canPush());
+            Vector2 PushBack = -transform.forward * RecoilAmount;
+            GetComponent<Rigidbody2D>().velocity = PushBack;
+
+            // pushing = true;
+            // StartCoroutine(canPush());
             pushing = false;
             StartCoroutine(FireControl());
         }
@@ -49,8 +52,7 @@ public class playerControlsXbox : MonoBehaviour
 
     IEnumerator canPush()
     {
-        Vector2 PushBack = -transform.forward * RecoilAmount;
-        GetComponent<Rigidbody2D>().velocity = PushBack;
+
         yield return new WaitForSeconds(pushTime);
     }
 }
