@@ -1,0 +1,153 @@
+
+wing2.png
+size: 1024,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+bone1
+  rotate: false
+  xy: 677, 577
+  size: 159, 120
+  orig: 159, 120
+  offset: 0, 0
+  index: -1
+bone2
+  rotate: false
+  xy: 500, 557
+  size: 175, 140
+  orig: 175, 140
+  offset: 0, 0
+  index: -1
+bone3
+  rotate: true
+  xy: 446, 400
+  size: 166, 31
+  orig: 166, 31
+  offset: 0, 0
+  index: -1
+feather1
+  rotate: true
+  xy: 567, 699
+  size: 59, 263
+  orig: 59, 263
+  offset: 0, 0
+  index: -1
+feather1 copy
+  rotate: true
+  xy: 567, 699
+  size: 59, 263
+  orig: 59, 263
+  offset: 0, 0
+  index: -1
+feather1 copy 10
+  rotate: false
+  xy: 103, 88
+  size: 139, 244
+  orig: 139, 244
+  offset: 0, 0
+  index: -1
+feather1 copy 11
+  rotate: true
+  xy: 267, 568
+  size: 177, 231
+  orig: 177, 231
+  offset: 0, 0
+  index: -1
+feather1 copy 12
+  rotate: false
+  xy: 239, 359
+  size: 205, 207
+  orig: 205, 207
+  offset: 0, 0
+  index: -1
+feather1 copy 2
+  rotate: false
+  xy: 417, 86
+  size: 59, 271
+  orig: 59, 271
+  offset: 0, 0
+  index: -1
+feather1 copy 3
+  rotate: true
+  xy: 567, 760
+  size: 65, 272
+  orig: 65, 272
+  offset: 0, 0
+  index: -1
+feather1 copy 4
+  rotate: false
+  xy: 340, 87
+  size: 75, 270
+  orig: 75, 270
+  offset: 0, 0
+  index: -1
+feather1 copy 5
+  rotate: true
+  xy: 597, 827
+  size: 81, 275
+  orig: 81, 275
+  offset: 0, 0
+  index: -1
+feather1 copy 6
+  rotate: true
+  xy: 292, 747
+  size: 91, 273
+  orig: 91, 273
+  offset: 0, 0
+  index: -1
+feather1 copy 7
+  rotate: false
+  xy: 244, 85
+  size: 94, 272
+  orig: 94, 272
+  offset: 0, 0
+  index: -1
+feather1 copy 8
+  rotate: false
+  xy: 2, 2
+  size: 99, 280
+  orig: 99, 280
+  offset: 0, 0
+  index: -1
+feather1 copy 9
+  rotate: false
+  xy: 102, 334
+  size: 135, 268
+  orig: 135, 268
+  offset: 0, 0
+  index: -1
+feather2
+  rotate: false
+  xy: 597, 910
+  size: 331, 63
+  orig: 331, 63
+  offset: 0, 0
+  index: -1
+feather2 copy
+  rotate: false
+  xy: 2, 604
+  size: 263, 190
+  orig: 263, 190
+  offset: 0, 0
+  index: -1
+feather2 copy 2
+  rotate: false
+  xy: 2, 796
+  size: 288, 177
+  orig: 288, 177
+  offset: 0, 0
+  index: -1
+feather2 copy 3
+  rotate: false
+  xy: 292, 840
+  size: 303, 133
+  orig: 303, 133
+  offset: 0, 0
+  index: -1
+feather2 copy 4
+  rotate: true
+  xy: 2, 284
+  size: 318, 98
+  orig: 318, 98
+  offset: 0, 0
+  index: -1
