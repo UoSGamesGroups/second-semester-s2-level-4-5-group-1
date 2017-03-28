@@ -1,0 +1,22 @@
+{"skeleton":{"images":"images/"},
+"bones":[{"name":"root"}],
+"slots":[
+	{"name":"Layer 1","bone":"root","attachment":"Layer 1"},
+	{"name":"Layer 3","bone":"root","attachment":"Layer 3"},
+	{"name":"Layer 2","bone":"root","attachment":"Layer 2"},
+	{"name":"Layer 1 copy","bone":"root","attachment":"Layer 1 copy"},
+	{"name":"Layer 3 copy","bone":"root","attachment":"Layer 3 copy"},
+	{"name":"Layer 2 copy","bone":"root","attachment":"Layer 2 copy"}
+],
+"skins":{
+	"default":{
+		"Layer 2 copy":{"Layer 2 copy":{"x":880.5,"y":463,"width":401,"height":242}},
+		"Layer 3 copy":{"Layer 3 copy":{"x":826.5,"y":353.5,"width":347,"height":119}},
+		"Layer 1 copy":{"Layer 1 copy":{"x":764.5,"y":278.5,"width":251,"height":59}},
+		"Layer 2":{"Layer 2":{"x":336.5,"y":463,"width":401,"height":242}},
+		"Layer 3":{"Layer 3":{"x":390.5,"y":353.5,"width":347,"height":119}},
+		"Layer 1":{"Layer 1":{"x":452.5,"y":278.5,"width":251,"height":59}}
+	}
+},
+"animations":{"animation":{}}
+}
